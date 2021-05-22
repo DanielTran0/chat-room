@@ -1,0 +1,54 @@
+extends layout 
+
+block content
+  h1= title 
+  
+  form(action="", method="post")
+    div.form-field
+      label(for='firstName') First Name
+      input#firstName(type="text" name='firstName' required=true value=(user? user.firstName : ''))
+      if errors
+        ul(class='errors')
+        for error in errors 
+          if error.param === 'firstName'
+            li= error.msg
+
+    div.form-field
+      label(for='lastName') Last Name 
+      input#lastName(type="text" name='lastName' required=true value=(user? user.lastName : ''))
+      if errors
+        ul(class='errors')
+        for error in errors 
+          if error.param === 'lastName'
+            li= error.msg
+
+    div.form-field
+      label(for='email') Email
+      input#email(type="email" name='email' required=true value=(user? user.email : ''))
+      if errors
+        ul(class='errors')
+        for error in errors 
+          if error.param === 'email'
+            li= error.msg
+
+    div.form-field
+      label(for='password') Password (Min Length: 8, Number, Capital Letter)
+      input#password(type="password" name='password' required=true)
+      if errors
+        ul(class='errors')
+        for error in errors 
+          if error.param === 'password'
+            li= error.msg
+
+    div.form-field
+      label(for='passwordConfirm') Confirm Password
+      input#passwordConfirm(type="password" name='passwordConfirm' required=true)    
+      if errors
+        ul(class='errors')
+        for error in errors 
+          if error.param === 'passwordConfirm'
+            li= error.msg
+
+    button(type='submit') Submit
+
+    a(href='/user/login') Already have an account? Sign in!

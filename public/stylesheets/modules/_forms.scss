@@ -1,0 +1,57 @@
+form {
+	display: flex;
+	flex-direction: column;
+	margin: 15px;
+
+	.error {
+		margin: 5px;
+		color: red;
+	}
+
+	.form-field {
+		display: flex;
+		flex-direction: column;
+		margin: 5px;
+
+		label {
+			margin-bottom: 5px;
+		}
+
+		.errors {
+			margin-top: 5px;
+		}
+
+		li {
+			margin-bottom: 2px;
+			color: red;
+		}
+
+		.error {
+			margin: 5px 0;
+			color: red;
+		}
+	}
+
+	button {
+		margin: 5px;
+		padding: 10px 0;
+		border: none;
+
+		font-weight: bold;
+
+		color: white;
+		background-color: rgb(0, 110, 255);
+	}
+
+	a {
+		align-self: flex-end;
+		margin: 10px 0;
+	}
+}
+
+@media (min-width: 769px) {
+	form {
+		margin: auto;
+		width: 500px;
+	}
+}

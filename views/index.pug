@@ -1,0 +1,26 @@
+extends layout 
+
+block content
+  p.greeting #{currentUser? `Welcome back ${currentUser.name}!` : ''}
+
+  div#messages
+    for message in messages 
+      div.message
+        h3= message.title
+        p.message-text= message.text
+        
+        if (currentUser && (currentUser.isAdmin || currentUser.isMember)) 
+          div.user 
+            <i class="fas fa-user-circle"></i> #{message.creator.name}
+        else
+          div.user 
+            <i class="fas fa-user-secret"></i> Anonymous
+        
+        div.date 
+          <i class="far fa-calendar-alt"></i> #{message.formattedTime} 
+        
+        if(currentUser && currentUser.isAdmin)
+          form(action="/message/delete", method="post")
+            input(type='hidden', name='messageId' required=true, value=message._id)
+
+            button(type='submit') Delete

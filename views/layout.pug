@@ -1,0 +1,63 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="preconnect" href="https://fonts.gstatic.com")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet")
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+
+  body
+
+    nav
+      div#nav-main
+        div#nav-left
+          a(href='/') 
+             <i class="fas fa-comments logo-icon"></i> Chat Room
+
+        div#nav-right
+          <i class="fas fa-bars"></i>
+          
+          div#nav-pc
+            if (currentUser)
+              div.nav-user
+                a(href='/message/create') 
+                  <i class="far fa-comment-dots"></i> Create Message
+                a(href='/user/member')
+                  <i class="fas fa-user user-icon"></i> Member
+                a(href='/user/admin') 
+                  <i class="fas fa-user-lock user-icon"></i> Admin
+                a(href='/user/logout') 
+                  <i class="fas fa-sign-out-alt sign-in-icon"></i> Log Out
+            else
+              div.nav-no-user
+                a(href='/user/login')
+                  <i class="fas fa-sign-in-alt sign-in-icon"></i> Login
+                
+                a(href='/user/create')
+                  <i class="fas fa-user-plus sign-in-icon"></i> Sign Up
+          
+      div#nav-mobile
+        if (currentUser)
+          div.nav-user
+            a(href='/message/create') 
+              <i class="far fa-comment-dots"></i> Create Message
+            a(href='/user/member')
+              <i class="fas fa-user user-icon"></i> Member
+            a(href='/user/admin') 
+              <i class="fas fa-user-lock user-icon"></i> Admin
+            a(href='/user/logout') 
+              <i class="fas fa-sign-out-alt sign-in-icon"></i> Log Out
+        else
+          div.nav-no-user
+            a(href='/user/login')
+              <i class="fas fa-sign-in-alt sign-in-icon"></i> Login
+            
+            a(href='/user/create')
+              <i class="fas fa-user-plus sign-in-icon"></i> Sign Up
+                    
+    block content
+
+    script(src="/scripts/interactions.js") 

@@ -1,0 +1,23 @@
+extends layout
+
+block content 
+  h1=title
+
+  form(action="", method="post") 
+    div.form-field
+      label(for='title') Title
+      input#title(type="text" name='title' required=true)
+      if errors
+        for error in errors 
+          if error.param === 'title'
+            p.error= error.msg
+
+    div.form-field
+      label(for='message') Message
+      input#message(type="textarea" name='message' required=true)
+      if errors
+        for error in errors 
+          if error.param === 'message'
+            p.error= error.msg
+
+    button(type='submit') Create new message

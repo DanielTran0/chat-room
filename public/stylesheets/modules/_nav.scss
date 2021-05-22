@@ -1,0 +1,83 @@
+nav {
+	padding: 15px;
+	background-color: rgb(53, 53, 53);
+
+	a {
+		color: white;
+
+		i {
+			margin-right: 5px;
+		}
+	}
+
+	#nav-main {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#nav-right {
+		display: flex;
+	}
+
+	#nav-pc,
+	#nav-mobile {
+		display: none;
+	}
+
+	#nav-mobile {
+		.nav-user,
+		.nav-no-user {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin: 5px 0;
+			margin-bottom: -10px;
+
+			a {
+				padding: 10px 0;
+			}
+		}
+	}
+}
+
+.logo-icon {
+	color: rgb(177, 0, 177);
+}
+
+.fa-bars {
+	color: white;
+	cursor: pointer;
+}
+
+.sign-in-icon {
+	color: rgb(0, 110, 255);
+}
+
+.user-icon {
+	color: rgb(34, 197, 13);
+}
+
+.fa-comment-dots {
+	color: rgb(177, 0, 177);
+}
+
+@media (min-width: 769px) {
+	nav {
+		i.fa-bars {
+			display: none;
+			color: red;
+		}
+
+		#nav-pc {
+			display: block;
+			.nav-user,
+			.nav-no-user {
+				display: flex;
+
+				a {
+					margin: 0 10px;
+				}
+			}
+		}
+	}
+}

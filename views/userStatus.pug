@@ -1,0 +1,18 @@
+extends layout
+
+block content 
+  h1=title
+
+  div.info
+    p Members can view message creators
+    p Admins can delete messages
+
+  form(action="", method="post") 
+    div.form-field
+      label(for='password') #{status} Password
+      input#password(type="password" name='password' required=true)
+      if error
+        p.error= error[0].msg
+    
+    button(type='submit') Become a #{status}
+
