@@ -7,7 +7,7 @@ const initializePassport = (passport) => {
 		new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
 			User.findOne({ email }).exec((mongoError, user) => {
 				if (mongoError) return done(mongoError);
-				if (!user) return done(null, false, { message: 'Incorrect username' });
+				if (!user) return done(null, false, { message: 'Incorrect Email' });
 
 				return bcrypt.compare(
 					password,
@@ -15,7 +15,7 @@ const initializePassport = (passport) => {
 					(bcryptError, result) => {
 						if (bcryptError) return done(bcryptError);
 						if (!result)
-							return done(null, false, { message: 'Incorrect password' });
+							return done(null, false, { message: 'Incorrect Password' });
 
 						return done(null, user);
 					}
